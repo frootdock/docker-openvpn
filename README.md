@@ -16,16 +16,27 @@ docker create \
 froot/docker-openvpn
 ```
 
-Parameters
-
-**Environment Variables**
+## Environment Variables**
 
 - COMPANY_NAME - company name to be displayed on login screen
 - LOGO_FILE_PATH - logo file path to be displayed on login screen
 - ADMIN_PASSWORD - administrator password
 - OPENVPN_VER - OpenVPN AS version to be installed
+- PUID - user id
+- PGID - group id
 
-**OpenVPN Init Default paramters**
+## User / Group Identifiers
+
+Sometimes when using data volumes (`-v` flags) permissions issues can arise between the host OS and the container. We avoid this issue by allowing you to specify the user `PUID` and group `PGID`. Ensure the data volume directory on the host is owned by the same user you specify and it will "just work" ™.
+
+In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as below:
+
+```
+  $ id <dockeruser>
+    uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
+```
+
+## OpenVPN Init Default paramters
 
 /root/etc/cont-init.d/40-openvpn-init
 

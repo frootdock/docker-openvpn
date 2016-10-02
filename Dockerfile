@@ -5,6 +5,8 @@ ENV COMPANY_NAME Froot
 ENV ADMIN_PASSWORD password
 ENV OPENVPN_VER 2.1.4
 ENV LOGO_FILE_PATH /etc/vpn_logo.png
+ENV TZ Europe/London
+ENV INTERFACE eth0
 
 # environment settings
 ARG DEBIAN_FRONTEND="noninteractive"
