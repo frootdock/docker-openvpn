@@ -1,3 +1,6 @@
 #!/usr/bin/with-contenv bash
 
+# Enforce OpenVPN Admin password change from environment variables on run
+echo "admin:${ADMIN_PASSWORD}" | chpasswd
+
 /config/scripts/openvpnas --nodaemon --umask=0077 --pidfile=/openvpn/pid/openvpn.pid --logfile=/config/log/openvpn.log
